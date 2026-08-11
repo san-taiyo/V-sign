@@ -1,0 +1,69 @@
+const actors=[
+{id:'yume-hikari',name:'夢野ひかり',ruby:'ゆめの ひかり',debut:'ぶいさいんSTAR\'s',debutOrder:16,groups:['ぶいさいんSTAR\'s'],birthday:'6月21日',tags:'#夢野ひかり #ひかりん',storyIds:['idol-days'],profile:'とある中学校のアイドル部に所属する少女。明るく前向きで、歌うことが大好き。',subscribers:42000},
+{id:'himekawa-yuna',name:'姫川ゆな',ruby:'ひめかわ ゆな',debut:'1期生',debutOrder:1,groups:['1期生'],birthday:'2月14日',tags:'#姫川ゆな',storyIds:['idol-days'],profile:'誰かの背中をそっと押せるような、まっすぐな少女。',subscribers:68000},
+{id:'sakuma-yoyami',name:'朔間ヨヤミ',ruby:'さくま よやみ',debut:'3期生',debutOrder:11,groups:['3期生'],birthday:'10月31日',tags:'#朔間ヨヤミ',storyIds:['idol-days'],profile:'夜の静けさと音楽を好む少女。静かな情熱を胸に秘めている。',subscribers:51000},
+{id:'mochizuki-laila',name:'望月ライラ',ruby:'もちづき らいら',debut:'3期生',debutOrder:12,groups:['3期生'],birthday:'9月9日',tags:'#望月ライラ',storyIds:['idol-days'],profile:'好奇心旺盛で、思いついたことはまず試してみるタイプ。',subscribers:37000},
+{id:'utagaki-kyoko',name:'歌垣響子',ruby:'うたがき きょうこ',debut:'ぶいさいんSTAR\'s',debutOrder:17,groups:['ぶいさいんSTAR\'s'],birthday:'4月4日',tags:'#歌垣響子',storyIds:['idol-days'],profile:'歌とステージをこよなく愛する、頼れるアイドル部員。',subscribers:55000},
+{id:'maioka-rumi',name:'舞岡ルミ',ruby:'まいおか るみ',debut:'ぶいさいんSTAR\'s',debutOrder:18,groups:['ぶいさいんSTAR\'s','放課後ユニット'],birthday:'8月8日',tags:'#舞岡ルミ',storyIds:['idol-days'],profile:'華やかな笑顔と自由な発想で、周囲を巻き込んでいく少女。',subscribers:33000},
+{id:'hanaki-nana',name:'花木七菜',ruby:'はなき なな',debut:'ぶいさいんSTAR\'s 2期生',debutOrder:22,groups:['ぶいさいんSTAR\'s 2期生'],birthday:'3月3日',tags:'#花木七菜',storyIds:['idol-days'],profile:'小さな変化を見つけるのが得意。アイドル部の新しい風。',subscribers:29000},
+{id:'demo-actor',name:'サンプルアクター',ruby:'さんぷる あくたー',debut:'2期生',debutOrder:7,groups:['2期生'],birthday:'12月12日',tags:'#サンプルアクター',storyIds:['signal-world'],profile:'サイトの構造確認用に登録した仮データです。',subscribers:12000}
+];
+const groups=[
+{id:'g1',name:'1期生',type:'debut',members:['himekawa-yuna']},
+{id:'g2',name:'2期生',type:'debut',members:['demo-actor']},
+{id:'g3',name:'3期生',type:'debut',members:['sakuma-yoyami','mochizuki-laila']},
+{id:'party1',name:"ぶいさいんPARTY's",type:'debut',members:[]},
+{id:'gamer1',name:"ぶいさいんGAMER's",type:'debut',members:[]},
+{id:'stars1',name:"ぶいさいんSTAR's",type:'debut',members:['yume-hikari','utagaki-kyoko','maioka-rumi']},
+{id:'party2',name:"ぶいさいんPARTY's 2期生",type:'debut',members:[]},
+{id:'stars2',name:"ぶいさいんSTAR's 2期生",type:'debut',members:['hanaki-nana']},
+{id:'toppo',name:'チームとっぽ',type:'debut',members:[]},
+{id:'shiki',name:'四鬼夜行',type:'debut',members:[]},
+{id:'zodiac',name:'Zodiac',type:'debut',members:[]},
+{id:'after-school',name:'放課後ユニット',type:'after',members:['maioka-rumi']}
+];
+const stories=[
+{id:'idol-days',title:'○○学園アイドル部',type:'WORLD STORY',lead:'同じ学校、違うデビューグループ。それでも彼女たちは、同じ放課後を生きている。',members:['yume-hikari','himekawa-yuna','sakuma-yoyami','mochizuki-laila','utagaki-kyoko','maioka-rumi','hanaki-nana']},
+{id:'signal-world',title:'輝きの中で',type:'WORLD STORY',lead:'それぞれの場所で輝くアクターたちを、ひとつの物語として描くためのサンプルSTORY。',members:['demo-actor']}
+];
+const contents=[
+{id:'ill-01',type:'イラスト',title:'放課後、集合！',date:'2026-08-10',actorIds:['yume-hikari','utagaki-kyoko','maioka-rumi'],storyId:'idol-days'},
+{id:'ill-02',type:'イラスト',title:'きらめくステージ',date:'2026-08-08',actorIds:['himekawa-yuna'],storyId:'idol-days'},
+{id:'ill-03',type:'イラスト',title:'月明かりの帰り道',date:'2026-08-04',actorIds:['sakuma-yoyami','mochizuki-laila'],storyId:'idol-days'},
+{id:'ill-04',type:'イラスト',title:'新しい風',date:'2026-07-30',actorIds:['hanaki-nana'],storyId:'idol-days'},
+{id:'cover-01',type:'歌ってみた',title:'サンプル歌ってみた',date:'2026-07-25',actorIds:['yume-hikari'],storyId:'idol-days'}
+];
+const news=[
+{date:'2026-08-10',title:'公式サイト テスト版を公開しました。',tag:'SITE'},
+{date:'2026-08-08',title:'新規イラスト「放課後、集合！」を公開しました。',tag:'ILLUST'},
+{date:'2026-08-01',title:'ぶいさいん！の活動準備を進めています。',tag:'INFO'}
+];
+const debutGroupNames=['1期生','2期生','3期生',"ぶいさいんPARTY's","ぶいさいんGAMER's","ぶいさいんSTAR's","ぶいさいんPARTY's 2期生","ぶいさいんSTAR's 2期生",'チームとっぽ','四鬼夜行','Zodiac'];
+const $=s=>document.querySelector(s);const $$=s=>[...document.querySelectorAll(s)];
+function actorById(id){return actors.find(a=>a.id===id)}
+function storyById(id){return stories.find(s=>s.id===id)}
+function groupById(id){return groups.find(g=>g.id===id)}
+function actorVisual(name,extra=''){return `<div class="visual"><span class="placeholder-name">${name}${extra}</span></div>`}
+function actorCard(a){return `<a class="actor-card" href="#actor/${a.id}">${actorVisual(a.name)}<div class="card-body"><p class="micro">${a.debut}</p><h3 class="card-title">${a.name}</h3><p class="card-text">${a.ruby}</p></div></a>`}
+function groupCard(g){const names=g.members.map(id=>actorById(id)?.name).filter(Boolean);return `<a class="group-card" href="#group/${g.id}">${actorVisual(g.name)}<div class="card-body"><p class="micro">${g.type==='debut'?'DEBUT GROUP':'AFTER GROUP'}</p><h3 class="card-title">${g.name}</h3><ul class="group-members">${names.length?names.map(n=>`<li>${n}</li>`).join(''):'<li>メンバー情報準備中</li>'}</ul></div></a>`}
+function contentCard(c){const names=c.actorIds.map(id=>actorById(id)?.name).filter(Boolean);return `<article class="content-card">${`<div class="content-image">✦</div>`}<div class="card-body"><p class="micro">${c.type} / ${c.date.replaceAll('-','.')}</p><h3 class="card-title">${c.title}</h3><p class="actor-tags">${names.join('・')}</p></div></article>`}
+function shuffleDistinct(arr,count){const copy=[...arr];for(let i=copy.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[copy[i],copy[j]]=[copy[j],copy[i]]}return copy.slice(0,Math.min(count,copy.length))}
+function renderHome(){
+$('#home-news').innerHTML=news.slice(0,3).map(n=>`<a class="news-item" href="#news"><time class="news-date">${n.date.replaceAll('-','.')}</time><div class="news-title">${n.title}</div><span class="tag">${n.tag}</span></a>`).join('');
+$('#home-actors').innerHTML=shuffleDistinct(actors,3).map(actorCard).join('');
+const story=stories[Math.floor(Math.random()*stories.length)];$('#home-story').innerHTML=`<div class="story-copy"><p class="micro">${story.type}</p><h3>${story.title}</h3><p>${story.lead}</p><a class="button light" href="#story/${story.id}">STORYを見る →</a></div><div class="story-art">✦</div>`;
+const latest=[...contents].sort((a,b)=>b.date.localeCompare(a.date))[0];$('#home-content').innerHTML=`<div class="content-image">✦</div><div class="content-copy"><p class="micro">LATEST ILLUSTRATION / ${latest.date.replaceAll('-','.')}</p><h3>${latest.title}</h3><p>${latest.actorIds.map(id=>actorById(id)?.name).filter(Boolean).join('・')}</p><div class="more-row"><a class="button yellow" href="#contents">CONTENTSを見る →</a></div></div>`;
+}
+function renderNews(){ $('#page-news').innerHTML=`<div class="page-head"><p class="section-kicker">WHAT'S NEW</p><h2>NEWS</h2><p>サイト更新情報と新規イラストのお知らせ。</p></div><div class="news-list">${news.map(n=>`<article class="news-item"><time class="news-date">${n.date.replaceAll('-','.')}</time><div class="news-title">${n.title}</div><span class="tag">${n.tag}</span></article>`).join('')}</div>`}
+function renderActors(mode='name'){let list=[...actors];if(mode==='debut')list.sort((a,b)=>a.debutOrder-b.debutOrder);else if(mode==='subscribers')list.sort((a,b)=>b.subscribers-a.subscribers);else if(mode==='group')list.sort((a,b)=>a.debut.localeCompare(b.debut,'ja')||a.name.localeCompare(b.name,'ja'));else list.sort((a,b)=>a.name.localeCompare(b.name,'ja'));$('#actor-list').innerHTML=list.map(actorCard).join('');$$('[data-actor-mode]').forEach(b=>b.classList.toggle('active',b.dataset.actorMode===mode))}
+function renderGroups(mode='debut'){const list=mode==='debut'?groups.filter(g=>g.type==='debut'):groups;$('#group-list').innerHTML=list.map(groupCard).join('');$$('[data-group-mode]').forEach(b=>b.classList.toggle('active',b.dataset.groupMode===mode))}
+function renderStories(){ $('#story-list').innerHTML=stories.map(s=>`<a class="story-card" href="#story/${s.id}"><div class="story-art">✦</div><div class="story-info"><p class="micro">${s.type}</p><h3>${s.title}</h3><p class="card-text">${s.lead}</p></div></a>`).join('') }
+function renderContents(mode='all'){const list=mode==='all'?contents:contents.filter(c=>c.type===mode);$('#content-list').innerHTML=list.sort((a,b)=>b.date.localeCompare(a.date)).map(contentCard).join('');$$('[data-content-mode]').forEach(b=>b.classList.toggle('active',b.dataset.contentMode===mode))}
+function renderActorProfile(id){const a=actorById(id);if(!a)return notFound();const storyLinks=a.storyIds.map(sid=>storyById(sid)).filter(Boolean);const related=contents.filter(c=>c.actorIds.includes(id));$('#page-actor-detail').innerHTML=`<div class="back"><a class="button light" href="#actor">← ACTOR一覧へ戻る</a></div><div class="page-head"><p class="section-kicker">ACTOR PROFILE</p><h2>${a.name}</h2><p class="ruby">${a.ruby}</p></div><div class="profile"><div class="profile-visuals">${actorVisual(a.name+' / FACE')}${actorVisual(a.name+' / FULL')}</div><div class="profile-main"><p class="micro">${a.debut}</p><h3>${a.name}</h3><dl class="info-list"><dt>デビューグループ</dt><dd>${a.debut}</dd><dt>所属後発グループ</dt><dd>${a.groups.filter(g=>g!==a.debut).length?a.groups.filter(g=>g!==a.debut).map(g=>`<a href="#group/${groups.find(x=>x.name===g)?.id||''}">${g}</a>`).join(' / '):'—'}</dd><dt>誕生日</dt><dd>${a.birthday}</dd><dt>ハッシュタグ</dt><dd>${a.tags}</dd></dl><p class="profile-copy">${a.profile}</p><div class="related"><h4>STORY</h4><div class="mini-grid">${storyLinks.map(s=>`<a class="mini-card" href="#story/${s.id}">${s.title} →</a>`).join('')}</div></div><div class="related"><h4>関連CONTENTS</h4><div class="mini-grid">${related.map(c=>`<div class="mini-card">${c.title}</div>`).join('')||'<div class="mini-card">準備中</div>'}</div></div></div></div>`}
+function renderGroupDetail(id){const g=groupById(id);if(!g)return notFound();const members=g.members.map(actorById).filter(Boolean);const related=contents.filter(c=>members.some(a=>c.actorIds.includes(a.id)));$('#page-group-detail').innerHTML=`<div class="back"><a class="button light" href="#actor">← ACTORへ戻る</a></div><div class="page-head"><p class="section-kicker">${g.type==='debut'?'DEBUT GROUP':'AFTER GROUP'}</p><h2>${g.name}</h2><p>グループ紹介のサンプルです。正式な設定・文章・ビジュアルは後から差し替えます。</p></div><div class="about-card"><div><h3>${g.name}</h3><p>${members.length?members.map(a=>a.name).join(' / '):'メンバー情報準備中'}</p></div></div><section class="page-panel is-visible"><div class="section-heading"><div><p class="section-kicker">MEMBERS</p><h2>所属アクター</h2></div></div><div class="grid-3">${members.map(actorCard).join('')||'<div class="empty">メンバー情報を準備中です。</div>'}</div></section><section class="page-panel is-visible"><div class="section-heading"><div><p class="section-kicker">RELATED CONTENTS</p><h2>関連CONTENTS</h2></div></div><div class="grid-3">${related.map(contentCard).join('')||'<div class="empty">関連イラストを準備中です。</div>'}</div></section>`}
+function renderStoryDetail(id){const s=storyById(id);if(!s)return notFound();const members=s.members.map(actorById).filter(Boolean);const related=contents.filter(c=>c.storyId===id);$('#page-story-detail').innerHTML=`<div class="back"><a class="button light" href="#story">← STORY一覧へ戻る</a></div><div class="page-head"><p class="section-kicker">${s.type}</p><h2>${s.title}</h2><p>${s.lead}</p></div><div class="story-pick"><div class="story-copy"><p class="micro">WORLD</p><h3>${s.title}</h3><p>${s.lead}</p></div><div class="story-art">✦</div></div><section class="page-panel is-visible"><div class="section-heading"><div><p class="section-kicker">CHARACTERS</p><h2>登場アクター</h2></div></div><div class="grid-3">${members.map(actorCard).join('')}</div></section><section class="page-panel is-visible"><div class="section-heading"><div><p class="section-kicker">RELATED CONTENTS</p><h2>関連CONTENTS</h2></div></div><div class="grid-3">${related.map(contentCard).join('')||'<div class="empty">関連イラストを準備中です。</div>'}</div></section>`}
+function renderAbout(){$('#page-about').innerHTML=`<div class="page-head"><p class="section-kicker">ABOUT</p><h2>ぶいさいん！</h2><p>アクターの個性と、そこから生まれる物語を大切にする架空のVtuber事務所。</p></div><div class="about-card"><div><h3>「らしさ」に、サインを。</h3><p>このページは設計書v1.0に基づく試作です。事務所紹介文、活動方針、運営情報などは今後追加できます。</p></div></div>`}
+function notFound(){location.hash='#top'}
+function showPage(){const hash=location.hash.replace(/^#/,'')||'top';$$('.page-panel').forEach(p=>p.classList.remove('is-visible'));$('#home').style.display=hash==='top'?'block':'none';if(hash==='top'){renderHome()}else if(hash==='news'){$('#page-news').classList.add('is-visible')}else if(hash==='actor'){$('#page-actor').classList.add('is-visible');renderActors()}else if(hash==='groups'){$('#page-actor').classList.add('is-visible');renderActors();renderGroups('all')}else if(hash==='story'){$('#page-story').classList.add('is-visible');renderStories()}else if(hash==='contents'){$('#page-contents').classList.add('is-visible');renderContents()}else if(hash==='about'){$('#page-about').classList.add('is-visible')}else if(hash.startsWith('actor/')){$('#page-actor-detail').classList.add('is-visible');renderActorProfile(hash.split('/')[1])}else if(hash.startsWith('group/')){$('#page-group-detail').classList.add('is-visible');renderGroupDetail(hash.split('/')[1])}else if(hash.startsWith('story/')){$('#page-story-detail').classList.add('is-visible');renderStoryDetail(hash.split('/')[1])}else notFound();$$('.nav-links a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')===`#${hash.split('/')[0]}`));window.scrollTo({top:0,behavior:'instant'})}
+function init(){renderNews();renderActors();renderGroups();renderStories();renderContents();renderAbout();$$('[data-actor-mode]').forEach(b=>b.addEventListener('click',()=>renderActors(b.dataset.actorMode)));$$('[data-group-mode]').forEach(b=>b.addEventListener('click',()=>renderGroups(b.dataset.groupMode)));$$('[data-content-mode]').forEach(b=>b.addEventListener('click',()=>renderContents(b.dataset.contentMode)));window.addEventListener('hashchange',showPage);showPage()}
+document.addEventListener('DOMContentLoaded',init);
