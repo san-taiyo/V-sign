@@ -1,328 +1,54 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="ぶいさいん！｜Vtuber事務所">
-  <title>ぶいさいん！｜Vtuber事務所</title>
-  <style>
-    :root {
-      --yellow: #FCCA00;
-      --yellow-light: #fff4bf;
-      --ink: #202020;
-      --muted: #777;
-      --paper: #fffdf6;
-      --white: #fff;
-      --line: #ece7d5;
-      --radius: 22px;
-      --shadow: 0 14px 40px rgba(54, 45, 10, .09);
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      color: var(--ink);
-      background: var(--paper);
-      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
-      line-height: 1.7;
-    }
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(255, 253, 246, .94);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(236, 231, 213, .8);
-    }
-    .nav {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-    .logo {
-      font-size: 1.45rem;
-      font-weight: 900;
-      letter-spacing: .04em;
-      white-space: nowrap;
-    }
-    .logo span { color: #d99e00; }
-    .nav-links { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
-    .nav-links a {
-      padding: 8px 13px;
-      border-radius: 999px;
-      font-size: .82rem;
-      font-weight: 800;
-      letter-spacing: .08em;
-      transition: background .2s, transform .2s;
-    }
-    .nav-links a:hover { background: var(--yellow-light); transform: translateY(-1px); }
-
-    .hero {
-      min-height: 520px;
-      display: grid;
-      place-items: center;
-      padding: 90px 24px 100px;
-      position: relative;
-      overflow: hidden;
-      background: var(--yellow);
-    }
-    .hero::before,
-    .hero::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(255,255,255,.2);
-    }
-    .hero::before { width: 360px; height: 360px; top: -180px; right: -70px; }
-    .hero::after { width: 240px; height: 240px; bottom: -140px; left: -40px; }
-    .hero-inner { position: relative; z-index: 1; max-width: 920px; text-align: center; }
-    .eyebrow { font-size: .78rem; font-weight: 900; letter-spacing: .24em; }
-    .hero h1 { margin: 10px 0 12px; font-size: clamp(3.5rem, 11vw, 8rem); line-height: .95; letter-spacing: -.06em; }
-    .hero p { margin: 0 auto; max-width: 640px; font-weight: 700; }
-    .hero-nav { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-    .hero-nav a { background: var(--ink); color: var(--white); padding: 11px 18px; border-radius: 999px; font-size: .84rem; font-weight: 800; }
-
-    main { max-width: 1180px; margin: 0 auto; padding: 30px 24px 90px; }
-    section { padding: 90px 0 0; scroll-margin-top: 80px; }
-    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 28px; }
-    .section-heading h2 { margin: 0; font-size: clamp(2rem, 5vw, 3.2rem); letter-spacing: -.04em; }
-    .section-heading p { margin: 0; color: var(--muted); font-size: .9rem; }
-
-    .news-list { display: grid; gap: 12px; }
-    .news-item {
-      display: grid;
-      grid-template-columns: 120px 1fr auto;
-      align-items: center;
-      gap: 18px;
-      padding: 20px 22px;
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(54,45,10,.04);
-    }
-    .news-date { color: #9a7300; font-weight: 800; font-size: .85rem; }
-    .news-title { font-weight: 800; }
-    .news-tag { padding: 4px 9px; background: var(--yellow-light); border-radius: 999px; font-size: .7rem; font-weight: 900; }
-
-    .actor-toolbar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
-    .filter-button {
-      border: 1px solid #d9d2b9;
-      background: var(--white);
-      padding: 9px 14px;
-      border-radius: 999px;
-      cursor: pointer;
-      font-weight: 800;
-      font-size: .82rem;
-      transition: .2s;
-    }
-    .filter-button:hover, .filter-button.is-active { border-color: var(--ink); background: var(--ink); color: var(--white); }
-    .actor-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-    .actor-card {
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-    .actor-visual {
-      aspect-ratio: 4 / 3;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--yellow-light), #fff);
-      font-size: 2.3rem;
-      font-weight: 900;
-    }
-    .actor-body { padding: 18px; }
-    .actor-group { display: inline-block; margin-bottom: 6px; color: #987000; font-size: .7rem; font-weight: 900; letter-spacing: .08em; }
-    .actor-name { margin: 0 0 4px; font-size: 1.3rem; }
-    .actor-meta { margin: 0; color: var(--muted); font-size: .78rem; }
-    .actor-empty { grid-column: 1 / -1; padding: 40px; text-align: center; color: var(--muted); background: var(--white); border-radius: var(--radius); }
-
-    .story-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .story-card { min-height: 260px; padding: 26px; display: flex; flex-direction: column; justify-content: end; border-radius: var(--radius); background: var(--ink); color: var(--white); overflow: hidden; position: relative; }
-    .story-card::before { content: ""; position: absolute; width: 190px; height: 190px; border-radius: 50%; background: var(--yellow); top: -70px; right: -60px; }
-    .story-card > * { position: relative; }
-    .story-type { font-size: .7rem; font-weight: 900; letter-spacing: .14em; opacity: .7; }
-    .story-card h3 { margin: 6px 0; font-size: 1.5rem; }
-    .story-card p { margin: 0; font-size: .82rem; opacity: .8; }
-
-    .outline { display: grid; grid-template-columns: .9fr 1.1fr; gap: 20px; }
-    .outline-lead, .outline-detail { padding: 34px; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
-    .outline-lead { background: var(--yellow); border-color: var(--yellow); }
-    .outline-lead h3 { margin: 0; font-size: 2rem; }
-    .outline-lead p { margin-bottom: 0; }
-    .outline-table { width: 100%; border-collapse: collapse; }
-    .outline-table th, .outline-table td { padding: 13px 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
-    .outline-table th { width: 28%; font-size: .78rem; color: var(--muted); }
-
-    footer { padding: 42px 24px; text-align: center; background: var(--ink); color: var(--white); }
-    footer strong { color: var(--yellow); }
-    footer small { display: block; margin-top: 5px; opacity: .55; }
-
-    @media (max-width: 900px) {
-      .actor-grid { grid-template-columns: repeat(2, 1fr); }
-      .story-grid { grid-template-columns: 1fr; }
-      .outline { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 620px) {
-      .nav { align-items: flex-start; flex-direction: column; padding: 14px 18px; }
-      .nav-links { justify-content: flex-start; }
-      .hero { min-height: 500px; padding: 70px 18px; }
-      main { padding-inline: 18px; }
-      .news-item { grid-template-columns: 1fr auto; gap: 4px 10px; }
-      .news-date { grid-column: 1 / -1; }
-      .actor-grid { grid-template-columns: 1fr; }
-      .section-heading { align-items: flex-start; flex-direction: column; }
-      .outline-lead, .outline-detail { padding: 24px; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="ぶいさいん！｜創作Vtuber事務所 プレビューサイト">
+<title>ぶいさいん！｜preview 001</title>
+<link rel="stylesheet" href="./assets/styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <nav class="nav" aria-label="メインナビゲーション">
-      <a class="logo" href="#top">ぶいさいん<span>！</span></a>
-      <div class="nav-links">
-        <a href="#news">NEWS</a>
-        <a href="#actor">ACTOR</a>
-        <a href="#story">STORY</a>
-        <a href="#outline">OUTLINE</a>
-      </div>
-    </nav>
-  </header>
+<header class="site-header">
+<nav class="nav" aria-label="メインナビゲーション">
+<a class="logo" href="#top">♔ ぶいさいん<span class="logo-mark">！</span></a>
+<div class="nav-links">
+<a href="#news">NEWS</a><a href="#actor">ACTOR</a><a href="#story">STORY</a><a href="#contents">CONTENTS</a><a href="#about">ABOUT</a>
+</div>
+</nav>
+</header>
 
-  <div id="top" class="hero">
-    <div class="hero-inner">
-      <div class="eyebrow">VIRTUAL ACTOR OFFICE</div>
-      <h1>ぶいさいん！</h1>
-      <p>それぞれの「らしさ」が、誰かの毎日に届く。<br>バーチャルアクターと物語をつくる事務所。</p>
-      <div class="hero-nav">
-        <a href="#actor">アクターを見る</a>
-        <a href="#story">物語を見る</a>
-      </div>
-    </div>
-  </div>
+<div id="home">
+<section id="top" class="hero">
+<div class="hero-inner"><div class="crown">♔</div><div class="eyebrow">VIRTUAL ACTOR OFFICE</div><h1>ぶいさいん！</h1><p>それぞれの「らしさ」が、誰かの毎日に届く。<br>バーチャルアクターと物語をつくる事務所。</p><div class="hero-actions"><a class="button" href="#actor">ACTORを見る →</a><a class="button light" href="#story">STORYを見る →</a></div></div>
+</section>
+<main>
+<section id="home-news-section"><div class="section-heading"><div><p class="section-kicker">WHAT'S NEW</p><h2>NEWS</h2></div><p>最新のお知らせ 3件</p></div><div id="home-news" class="news-list"></div><div class="more-row"><a class="button light" href="#news">NEWSページへ →</a></div></section>
+<section><div class="section-heading"><div><p class="section-kicker">VIRTUAL ACTORS</p><h2>ACTOR</h2></div><p>ランダムに3人をピックアップ</p></div><div id="home-actors" class="actor-feature"></div><div class="more-row"><a class="button light" href="#actor">ACTORページへ →</a></div></section>
+<section><div class="section-heading"><div><p class="section-kicker">WORLD &amp; STORIES</p><h2>STORY</h2></div><p>世界観をランダムに1つピックアップ</p></div><div id="home-story" class="story-pick"></div><div class="more-row"><a class="button light" href="#story">STORYページへ →</a></div></section>
+<section><div class="section-heading"><div><p class="section-kicker">ILLUSTRATION</p><h2>CONTENTS</h2></div><p>最新イラストをピックアップ</p></div><div id="home-content" class="content-pick"></div><div class="more-row"><a class="button light" href="#contents">CONTENTSページへ →</a></div></section>
+<section><div class="about-card"><div><p class="section-kicker">ABOUT US</p><h3>ぶいさいん！について</h3><p>アクターの個性と物語を大切にする、創作Vtuber事務所。</p></div><a class="button" href="#about">ABOUT →</a></div></section>
+</main>
+</div>
 
-  <main>
-    <section id="news">
-      <div class="section-heading">
-        <div><p>WHAT'S NEW</p><h2>NEWS</h2></div>
-        <p>ぶいさいん！からのお知らせ</p>
-      </div>
-      <div class="news-list">
-        <article class="news-item"><time class="news-date" datetime="2026-08-10">2026.08.10</time><div class="news-title">公式サイト テスト版を公開しました。</div><span class="news-tag">INFO</span></article>
-        <article class="news-item"><time class="news-date" datetime="2026-08-01">2026.08.01</time><div class="news-title">新規アクターの活動準備を進めています。</div><span class="news-tag">ACTOR</span></article>
-        <article class="news-item"><time class="news-date" datetime="2026-07-20">2026.07.20</time><div class="news-title">ぶいさいん！の公式プロジェクトが始動しました。</div><span class="news-tag">PROJECT</span></article>
-      </div>
-    </section>
+<main>
+<section id="page-news" class="page-panel"></section>
+<section id="page-actor" class="page-panel">
+<div class="page-head"><p class="section-kicker">VIRTUAL ACTORS</p><h2>ACTOR</h2><p>所属アクターとデビューグループ・後発グループ。</p></div>
+<div class="toolbar"><button class="filter active" data-actor-mode="name">名前順</button><button class="filter" data-actor-mode="debut">デビュー順</button><button class="filter" data-actor-mode="subscribers">登録者順</button><button class="filter" data-actor-mode="group">グループ別</button></div>
+<div id="actor-list" class="grid-4"></div>
+<div class="page-head" style="margin-top:70px"><p class="section-kicker">GROUP</p><h2>GROUP</h2><p>デビューグループと後発グループを切り替えて表示できます。</p></div>
+<div class="toolbar"><button class="filter active" data-group-mode="debut">デビューグループのみ</button><button class="filter" data-group-mode="all">全グループ</button></div>
+<div id="group-list" class="grid-3"></div>
+</section>
+<section id="page-story" class="page-panel"><div class="page-head"><p class="section-kicker">WORLD &amp; STORIES</p><h2>STORY</h2><p>デビューグループとは独立した、作品・世界観の一覧。</p></div><div id="story-list" class="grid-3"></div></section>
+<section id="page-contents" class="page-panel"><div class="page-head"><p class="section-kicker">WORKS</p><h2>CONTENTS</h2><p>イラストを中心とした、ぶいさいん！の作品一覧。</p></div><div class="toolbar"><button class="filter active" data-content-mode="all">すべて</button><button class="filter" data-content-mode="イラスト">イラスト</button><button class="filter" data-content-mode="歌ってみた">歌ってみた</button></div><div id="content-list" class="grid-3"></div></section>
+<section id="page-about" class="page-panel"></section>
+<section id="page-actor-detail" class="page-panel"></section>
+<section id="page-group-detail" class="page-panel"></section>
+<section id="page-story-detail" class="page-panel"></section>
+</main>
 
-    <section id="actor">
-      <div class="section-heading">
-        <div><p>VIRTUAL ACTORS</p><h2>ACTOR</h2></div>
-        <p id="actor-count">4 ACTORS</p>
-      </div>
-      <div class="actor-toolbar" role="group" aria-label="アクター表示順・表示方法">
-        <button class="filter-button is-active" data-mode="name">名前順</button>
-        <button class="filter-button" data-mode="debut">デビュー順</button>
-        <button class="filter-button" data-mode="subscribers">登録者順</button>
-        <button class="filter-button" data-mode="group">グループ別</button>
-      </div>
-      <div id="actor-grid" class="actor-grid" aria-live="polite"></div>
-    </section>
-
-    <section id="story">
-      <div class="section-heading">
-        <div><p>WORLD &amp; STORIES</p><h2>STORY</h2></div>
-        <p>アクターと世界をつなぐ物語</p>
-      </div>
-      <div class="story-grid">
-        <article class="story-card"><span class="story-type">GROUP STORY</span><h3>はじまりのサイン</h3><p>複数のアクターが共有する世界観から始まる、最初の物語。</p></article>
-        <article class="story-card"><span class="story-type">IMAGE VIDEO</span><h3>SIGNAL</h3><p>声、光、音。アクターたちの存在を感じるイメージビデオ。</p></article>
-        <article class="story-card"><span class="story-type">ACTOR STORY</span><h3>それぞれの世界</h3><p>一人ひとりのキャラクター性と背景を掘り下げる物語。</p></article>
-      </div>
-    </section>
-
-    <section id="outline">
-      <div class="section-heading">
-        <div><p>ABOUT US</p><h2>OUTLINE</h2></div>
-        <p>ぶいさいん！について</p>
-      </div>
-      <div class="outline">
-        <div class="outline-lead">
-          <h3>「らしさ」に、<br>サインを。</h3>
-          <p>ぶいさいん！は、バーチャルアクターの個性と物語を大切にする架空のVtuber事務所です。</p>
-        </div>
-        <div class="outline-detail">
-          <table class="outline-table">
-            <tr><th>名称</th><td>ぶいさいん！</td></tr>
-            <tr><th>呼称</th><td>所属Vtuberを「アクター」と呼称します。</td></tr>
-            <tr><th>活動</th><td>ライブ配信、動画、音楽、イベント、物語・世界観コンテンツなど</td></tr>
-            <tr><th>コンセプト</th><td>アクターそれぞれのキャラクター性・世界観を尊重し、個人とグループ双方の魅力を届けます。</td></tr>
-          </table>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <strong>ぶいさいん！</strong>
-    <small>TEST PREVIEW 001</small>
-  </footer>
-
-  <script>
-    // テスト用アクターデータ。将来的にはJSON等へ分離できます。
-    const actors = [
-      { name: "朝比奈ひなた", group: "SUNRISE", debut: "2025-04-12", subscribers: 82000, mark: "ひ" },
-      { name: "星乃ルナ", group: "MOONLIGHT", debut: "2025-07-19", subscribers: 126000, mark: "ル" },
-      { name: "白石トワ", group: "SUNRISE", debut: "2025-04-12", subscribers: 101000, mark: "ト" },
-      { name: "夜凪ミコト", group: "MOONLIGHT", debut: "2026-02-28", subscribers: 54000, mark: "ミ" }
-    ];
-
-    const grid = document.getElementById("actor-grid");
-    const count = document.getElementById("actor-count");
-    const buttons = document.querySelectorAll(".filter-button");
-
-    function formatSubscribers(value) {
-      return new Intl.NumberFormat("ja-JP").format(value) + " subscribers";
-    }
-
-    function renderActors(mode) {
-      let list = [...actors];
-      if (mode === "name") list.sort((a, b) => a.name.localeCompare(b.name, "ja"));
-      if (mode === "debut") list.sort((a, b) => new Date(a.debut) - new Date(b.debut));
-      if (mode === "subscribers") list.sort((a, b) => b.subscribers - a.subscribers);
-      if (mode === "group") list.sort((a, b) => a.group.localeCompare(b.group) || a.name.localeCompare(b.name, "ja"));
-
-      grid.innerHTML = list.map(actor => `
-        <article class="actor-card">
-          <div class="actor-visual" aria-hidden="true">${actor.mark}</div>
-          <div class="actor-body">
-            <span class="actor-group">${actor.group}</span>
-            <h3 class="actor-name">${actor.name}</h3>
-            <p class="actor-meta">DEBUT ${actor.debut.replaceAll("-", ".")} ／ ${formatSubscribers(actor.subscribers)}</p>
-          </div>
-        </article>
-      `).join("");
-
-      count.textContent = `${list.length} ACTORS ／ ${mode === "group" ? "GROUP VIEW" : "SORTED VIEW"}`;
-    }
-
-    buttons.forEach(button => {
-      button.addEventListener("click", () => {
-        buttons.forEach(item => item.classList.remove("is-active"));
-        button.classList.add("is-active");
-        renderActors(button.dataset.mode);
-      });
-    });
-
-    renderActors("name");
-  </script>
+<footer><strong>♔ ぶいさいん！</strong><small>preview / 001 — デザイン・構造確認用プロトタイプ</small></footer>
+<script src="./assets/app.js"></script>
 </body>
 </html>
