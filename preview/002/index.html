@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="ぶいさいん！｜創作Vtuber事務所 プレビューサイト">
+<title>ぶいさいん！｜preview 002</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Kaisei+Decol:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body>
+<header class="site-header">
+<nav class="nav" aria-label="メインナビゲーション">
+<a class="logo" href="#top">♔ ぶいさいん<span class="logo-mark">！</span></a>
+<div class="nav-links">
+<a href="#news">NEWS</a><a href="#actor">ACTOR</a><a href="#story">STORY</a><a href="#contents">CONTENTS</a><a href="#about">ABOUT</a>
+</div>
+</nav>
+</header>
+
+<div id="home">
+<section id="top" class="hero">
+<div class="hero-inner"><div class="crown">♔</div><div class="eyebrow">VIRTUAL ACTOR OFFICE</div><h1>ぶいさいん！</h1><p>それぞれの「らしさ」が、誰かの毎日に届く。<br>バーチャルアクターと物語をつくる事務所。</p><div class="hero-actions"><a class="button" href="#actor">ACTORを見る →</a><a class="button light" href="#story">STORYを見る →</a></div></div>
+</section>
+<main>
+<section id="home-news-section"><div class="section-heading"><div><p class="section-kicker">WHAT'S NEW</p><h2>NEWS</h2></div><p>最新のお知らせ 3件</p></div><div id="home-news" class="news-list"></div><div class="more-row"><a class="button light" href="#news">NEWSページへ →</a></div></section>
+<section><div class="section-heading"><div><p class="section-kicker">VIRTUAL ACTORS</p><h2>ACTOR</h2></div><p>ランダムに3人をピックアップ</p></div><div id="home-actors" class="actor-feature"></div><div class="more-row"><a class="button light" href="#actor">ACTORページへ →</a></div></section>
+<section><div class="section-heading"><div><p class="section-kicker">WORLD &amp; STORIES</p><h2>STORY</h2></div><p>世界観をランダムに1つピックアップ</p></div><div id="home-story" class="story-pick"></div><div class="more-row"><a class="button light" href="#story">STORYページへ →</a></div></section>
+<section><div class="section-heading"><div><p class="section-kicker">ILLUSTRATION</p><h2>CONTENTS</h2></div><p>最新イラストをピックアップ</p></div><div id="home-content" class="content-pick"></div><div class="more-row"><a class="button light" href="#contents">CONTENTSページへ →</a></div></section>
+<section><div class="about-card"><div><p class="section-kicker">ABOUT US</p><h3>ぶいさいん！について</h3><p>アクターの個性と物語を大切にする、創作Vtuber事務所。</p></div><a class="button" href="#about">ABOUT →</a></div></section>
+</main>
+</div>
+
+<main>
+<section id="page-news" class="page-panel"></section>
+<section id="page-actor" class="page-panel"><div class="page-head"><p class="section-kicker">VIRTUAL ACTORS</p><h2>ACTOR</h2><p>所属アクターとデビューグループ・後発グループ。</p></div><div class="toolbar"><button class="filter active" data-actor-mode="name">名前順</button><button class="filter" data-actor-mode="debut">デビュー順</button><button class="filter" data-actor-mode="subscribers">登録者順</button><button class="filter" data-actor-mode="group">グループ別</button></div><div id="actor-list" class="grid-4"></div><div class="page-head" style="margin-top:70px"><p class="section-kicker">GROUP</p><h2>GROUP</h2><p>デビューグループと後発グループを切り替えて表示できます。</p></div><div class="toolbar"><button class="filter active" data-group-mode="debut">デビューグループのみ</button><button class="filter" data-group-mode="all">全グループ</button></div><div id="group-list" class="grid-3"></div></section>
+<section id="page-story" class="page-panel"><div class="page-head"><p class="section-kicker">WORLD &amp; STORIES</p><h2>STORY</h2><p>デビューグループとは独立した、作品・世界観の一覧。</p></div><div id="story-list" class="grid-3"></div></section>
+<section id="page-contents" class="page-panel"><div class="page-head"><p class="section-kicker">WORKS</p><h2>CONTENTS</h2><p>イラストを中心とした、ぶいさいん！の作品一覧。</p></div><div class="toolbar"><button class="filter active" data-content-mode="all">すべて</button><button class="filter" data-content-mode="イラスト">イラスト</button><button class="filter" data-content-mode="歌ってみた">歌ってみた</button></div><div id="content-list" class="grid-3"></div></section>
+<section id="page-about" class="page-panel"></section><section id="page-actor-detail" class="page-panel"></section><section id="page-group-detail" class="page-panel"></section><section id="page-story-detail" class="page-panel"></section>
+</main>
+<footer><strong>♔ ぶいさいん！</strong><small>preview / 002 — Kosugi Maru + Kaisei Decol Bold 700</small></footer>
+<script src="../001/assets/app.js"></script>
+</body>
+</html>
