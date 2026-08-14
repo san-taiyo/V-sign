@@ -44,10 +44,23 @@
       <div class="standing-stage">
         <span class="sparkle sparkle-a">✦</span><span class="sparkle sparkle-b">✧</span>
         <img src="https://raw.githubusercontent.com/san-taiyo/V-sign/main/assets/images/actors/standing/actor005.PNG" alt="姫川ゆな 全身立ち絵">
+        <button class="fullview-button" type="button" aria-controls="fullview-modal">立ち絵を全表示</button>
       </div>
     </div>
   </section>
 </main>
+<div class="fullview-modal" id="fullview-modal" aria-hidden="true">
+  <button class="fullview-close" type="button" aria-label="閉じる">×</button>
+  <img src="https://raw.githubusercontent.com/san-taiyo/V-sign/main/assets/images/actors/standing/actor005.PNG" alt="姫川ゆな 全身立ち絵・全表示">
+</div>
 <footer><img src="https://raw.githubusercontent.com/san-taiyo/V-sign/main/assets/images/logo/logo.PNG" alt="ぶいさいん！"><small>preview / 008 — ACTOR 005</small></footer>
+<script>
+const modal=document.querySelector('#fullview-modal');
+const openButton=document.querySelector('.fullview-button');
+const closeButton=document.querySelector('.fullview-close');
+function openFullview(){modal.classList.add('is-open');modal.setAttribute('aria-hidden','false');document.body.classList.add('modal-open')}
+function closeFullview(){modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open')}
+openButton.addEventListener('click',openFullview);closeButton.addEventListener('click',closeFullview);modal.addEventListener('click',e=>{if(e.target===modal)closeFullview()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeFullview()});
+</script>
 </body>
 </html>
